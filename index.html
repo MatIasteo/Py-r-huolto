@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pojat Korjaamolla – Pyörien Keväthuolto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0f0e0d;
+    --cream: #f4f0e8;
+    --rust: #c94f2c;
+    --rust-dark: #9e3a1e;
+    --yellow: #f0c24b;
+    --grey: #7a7570;
+    --light: #e8e2d6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    padding: 60px 50px 60px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    color: var(--grey);
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 9vw, 130px);
+    line-height: 0.92;
+    letter-spacing: -1px;
+    color: var(--cream);
+  }
+
+  .hero-title .accent {
+    color: var(--rust);
+    display: block;
+  }
+
+  .hero-title .thin {
+    color: var(--grey);
+    font-size: 0.55em;
+    letter-spacing: 6px;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--grey);
+    line-height: 1.7;
+    max-width: 320px;
+    margin-top: 24px;
+  }
+
+  .hero-right {
+    background: var(--rust);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wheel-svg {
+    width: 75%;
+    opacity: 0.15;
+    animation: spin 40s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .season-badge {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    padding: 10px 18px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .cal-embed {
+    width: 100%;
+    height: 500px;
+    border: none;
+    background: transparent;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--rust);
+    color: var(--cream);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    padding: 18px 36px;
+    text-decoration: none;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .btn-primary:hover { background: var(--rust-dark); }
+
+  .availability {
+    font-size: 12px;
+    color: var(--grey);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .availability span {
+    color: var(--yellow);
+  }
+
+  /* DIAGONAL STRIPE */
+  .stripe {
+    height: 6px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--rust),
+      var(--rust) 10px,
+      var(--yellow) 10px,
+      var(--yellow) 20px
+    );
+  }
+
+  /* SERVICES */
+  .services {
+    background: var(--cream);
+    color: var(--black);
+    padding: 80px 60px;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: var(--rust);
+    margin-bottom: 40px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--light);
+    padding: 40px 32px;
+    transition: background 0.2s;
+  }
+
+  .service-card:hover {
+    background: var(--black);
+    color: var(--cream);
+  }
+
+  .service-card:hover .service-price {
+    color: var(--yellow);
+  }
+
+  .service-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .service-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .service-desc {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--grey);
+    margin-bottom: 20px;
+  }
+
+  .service-card:hover .service-desc {
+    color: #999;
+  }
+
+  .service-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--black);
+    letter-spacing: 1px;
+  }
+
+  /* INFO BAND */
+  .info-band {
+    background: var(--black);
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 50px 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .info-item {}
+
+  .info-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--grey);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .info-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--cream);
+    letter-spacing: 1px;
+  }
+
+  .info-value .highlight {
+    color: var(--rust);
+  }
+
+  /* BOOKING */
+  .booking {
+    background: var(--rust);
+    padding: 80px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .booking-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.95;
+    color: var(--cream);
+  }
+
+  .booking-title em {
+    color: var(--yellow);
+    font-style: normal;
+  }
+
+  .booking-body {
+    font-size: 14px;
+    color: rgba(244,240,232,0.7);
+    line-height: 1.8;
+    margin-top: 16px;
+  }
+
+  .cal-placeholder {
+    background: rgba(0,0,0,0.2);
+    border: 2px dashed rgba(244,240,232,0.3);
+    padding: 50px 40px;
+    text-align: center;
+  }
+
+  .cal-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .cal-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+
+  .cal-sub {
+    font-size: 12px;
+    color: rgba(244,240,232,0.5);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .btn-book {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+    padding: 16px 32px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn-book:hover { opacity: 0.85; }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: var(--grey);
+  }
+
+  .footer-note {
+    font-size: 12px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  /* ANIMATIONS */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .fade-up:nth-child(1) { animation-delay: 0.1s; }
+  .fade-up:nth-child(2) { animation-delay: 0.25s; }
+  .fade-up:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 200px; }
+    .hero-left { padding: 40px 30px; }
+    .services { padding: 50px 30px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .info-band { grid-template-columns: 1fr; padding: 40px 30px; gap: 24px; }
+    .booking { grid-template-columns: 1fr; padding: 50px 30px; }
+    footer { flex-direction: column; gap: 12px; padding: 30px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="logo">MERIMIEHENKADUN PYÖRÄHUOLTO</div>
+
+    <div>
+      <h1 class="hero-title">
+        <span class="thin">Kevät&shy;huolto</span>
+        PYÖRÄ<span class="accent">KUNTOON</span>
+      </h1>
+      <p class="hero-sub">Käsityönä tehty huolto, jossa jokainen pyörä saa ansaitsemansa huomion. Varaa aika ma–to iltaisin.</p>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#varaus" class="btn-primary">Varaa aika →</a>
+      <p class="availability">Vapaat ajat: <span>Ma, Ti, Ke & To illat</span></p>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <!-- Animated wheel SVG -->
+    <svg class="wheel-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="95" stroke="white" stroke-width="6"/>
+      <circle cx="100" cy="100" r="12" fill="white"/>
+      <circle cx="100" cy="100" r="55" stroke="white" stroke-width="3" stroke-dasharray="8 6"/>
+      <!-- Spokes -->
+      <line x1="100" y1="12" x2="100" y2="88" stroke="white" stroke-width="2.5"/>
+      <line x1="100" y1="112" x2="100" y2="188" stroke="white" stroke-width="2.5"/>
+      <line x1="12" y1="100" x2="88" y2="100" stroke="white" stroke-width="2.5"/>
+      <line x1="112" y1="100" x2="188" y2="100" stroke="white" stroke-width="2.5"/>
+      <line x1="27" y1="27" x2="88" y2="88" stroke="white" stroke-width="2"/>
+      <line x1="112" y1="112" x2="173" y2="173" stroke="white" stroke-width="2"/>
+      <line x1="173" y1="27" x2="112" y2="88" stroke="white" stroke-width="2"/>
+      <line x1="88" y1="112" x2="27" y2="173" stroke="white" stroke-width="2"/>
+    </svg>
+    <div class="season-badge">KEVÄT 2025</div>
+  </div>
+</section>
+
+<div class="stripe"></div>
+
+<section class="services">
+  <p class="section-label">// Palvelut</p>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-num">01</div>
+      <div class="service-name">Kevät&shy;huolto</div>
+      <p class="service-desc">Jarrut, vaihteisto, ketju ja renkaat tarkistetaan, säädetään ja öljytään.</p>
+      <div class="service-price">40 €</div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">02</div>
+      <div class="service-name">Täys&shy;huolto</div>
+      <p class="service-desc">Kattava läpikäynti: puhdistus, säädöt, kuluvat osat vaihdetaan tarpeen mukaan. Vaihdettavat osat lisähintaan.</p>
+      <div class="service-price">60 €</div>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-num">03</div>
+      <div class="service-name">Rengas & Jarru</div>
+      <p class="service-desc">Täsmäkorjaus, esim. renkaanvaihto tai jarrujen vaihto.</p>
+      <div class="service-price">alkaen 20 €</div>
+    </div>
+  </div>
+</section>
+
+  <div class="info-band">
+  <div class="info-item">
+    <div class="info-label">Päivät</div>
+    <div class="info-value"><span class="highlight">Ma · Ti · Ke · To</span></div>
+  </div>
+  <div class="info-item">
+    <div class="info-label">Illat</div>
+    <div class="info-value">17:00 – 20:00</div>
+  </div>
+  <div class="info-item">
+    <div class="info-label">Osoite</div>
+    <div class="info-value">Merimiehenkatu 18 <span class="highlight">·</span> Punavuori</div>
+  </div>
+</div>
+
+<section class="booking" id="varaus">
+  <div>
+    <h2 class="booking-title">VARAA<br><em>AIKA</em><br>NETISSÄ</h2>
+    <p class="booking-body">
+      Valitse sinulle sopiva aika kalenterista.<br>
+      Saat vahvistuksen sähköpostiin.<br><br>
+      Kysy lisää: <strong style="color:var(--cream)">teo.mutikainen@icloud.com</strong>
+    </p>
+  </div>
+  <div style="background:rgba(0,0,0,0.15); padding: 8px;">
+    <iframe src="https://cal.eu/t-j-uwtwwm/pyorahuolto" class="cal-embed" frameborder="0"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">MERIMIEHENKADUN PYÖRÄHUOLTO</div>
+  <div class="footer-note">Pyörähuolto · Ma–To illat · Merimiehenkatu 18, Punavuori</div>
+</footer>
+
+</body>
+</html>
