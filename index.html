@@ -82,7 +82,6 @@
   }
 
   .hero-right {
-    background: var(--rust);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -90,15 +89,12 @@
     justify-content: center;
   }
 
-  .wheel-svg {
-    width: 75%;
-    opacity: 0.15;
-    animation: spin 40s linear infinite;
-  }
-
-  @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   .season-badge {
@@ -406,26 +402,12 @@
 
     <div class="hero-cta">
       <a href="#varaus" class="btn-primary">Varaa aika →</a>
-      <p class="availability">Vapaat ajat: <span>Ma, Ti & To illat</span></p>
+      <p class="availability">Vapaat ajat: <span>Ma, Ti, Ke & To illat</span></p>
     </div>
   </div>
 
   <div class="hero-right">
-    <!-- Animated wheel SVG -->
-    <svg class="wheel-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="95" stroke="white" stroke-width="6"/>
-      <circle cx="100" cy="100" r="12" fill="white"/>
-      <circle cx="100" cy="100" r="55" stroke="white" stroke-width="3" stroke-dasharray="8 6"/>
-      <!-- Spokes -->
-      <line x1="100" y1="12" x2="100" y2="88" stroke="white" stroke-width="2.5"/>
-      <line x1="100" y1="112" x2="100" y2="188" stroke="white" stroke-width="2.5"/>
-      <line x1="12" y1="100" x2="88" y2="100" stroke="white" stroke-width="2.5"/>
-      <line x1="112" y1="100" x2="188" y2="100" stroke="white" stroke-width="2.5"/>
-      <line x1="27" y1="27" x2="88" y2="88" stroke="white" stroke-width="2"/>
-      <line x1="112" y1="112" x2="173" y2="173" stroke="white" stroke-width="2"/>
-      <line x1="173" y1="27" x2="112" y2="88" stroke="white" stroke-width="2"/>
-      <line x1="88" y1="112" x2="27" y2="173" stroke="white" stroke-width="2"/>
-    </svg>
+    <img src="korjaamo.jpg" alt="Pyörähuolto korjaamolla">
     <div class="season-badge">KEVÄT 2026</div>
   </div>
 </section>
@@ -459,7 +441,7 @@
   <div class="info-band">
   <div class="info-item">
     <div class="info-label">Päivät</div>
-    <div class="info-value"><span class="highlight">Ma · Ti  · To</span></div>
+    <div class="info-value"><span class="highlight">Ma · Ti · To</span></div>
   </div>
   <div class="info-item">
     <div class="info-label">Illat</div>
@@ -480,6 +462,5 @@
       Kysy lisää: <strong style="color:var(--cream)">teo.mutikainen205 [at] gmail.com</strong>
     </p>
   </div>
-   <div style="background:rgba(0,0,0,0.15); padding: 8px;">
-    <iframe src="https://cal.com/teo-mutikainen-wdcrno/pyorahuolto" class="cal-embed" frameborder="0"></iframe>
-  </div>
+  <div style="background:rgba(0,0,0,0.15); padding: 8px;">
+    <iframe src="https://cal.com/teo-mutikainen-wdcrno/pyorahuolto" c
