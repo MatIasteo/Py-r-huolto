@@ -265,6 +265,64 @@
     color: var(--rust);
   }
 
+  /* ABOUT */
+  .about {
+    background: var(--black);
+    padding: 80px 60px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 40px;
+  }
+
+  .about-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 0.95;
+    color: var(--cream);
+    margin-bottom: 28px;
+  }
+
+  .about-body {
+    font-size: 14px;
+    color: var(--grey);
+    line-height: 1.9;
+    margin-bottom: 16px;
+    max-width: 420px;
+  }
+
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 8px;
+  }
+
+  .fact-item {
+    border-left: 3px solid var(--rust);
+    padding-left: 20px;
+  }
+
+  .fact-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .fact-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--grey);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
   /* BOOKING */
   .booking {
     background: var(--rust);
@@ -381,6 +439,8 @@
     .services { padding: 50px 30px; }
     .services-grid { grid-template-columns: 1fr; }
     .info-band { grid-template-columns: 1fr; padding: 40px 30px; gap: 24px; }
+    .about { padding: 50px 30px; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .booking { grid-template-columns: 1fr; padding: 50px 30px; }
     footer { flex-direction: column; gap: 12px; padding: 30px; text-align: center; }
   }
@@ -402,7 +462,7 @@
 
     <div class="hero-cta">
       <a href="#varaus" class="btn-primary">Varaa aika →</a>
-      <p class="availability">Vapaat ajat: <span>Ma, Ti & To illat</span></p>
+      <p class="availability">Vapaat ajat: <span>Ma, Ti, Ke & To illat</span></p>
     </div>
   </div>
 
@@ -453,6 +513,38 @@
   </div>
 </div>
 
+<section class="about">
+  <p class="section-label">// Meistä</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="about-title">Kaksi veljestä,<br>yksi intohimo.</h2>
+      <p class="about-body">
+        Olemme Teo (17) ja Matias (15), punavuorelaiset veljekset jotka ovat kasvaneet pyörän selässä. Alamäkipyöräily on vienyt meidät vuosien varrella moneen paikkaan — ja samalla opettanut, että pyörän on oltava aina huippukunnossa.
+      </p>
+      <p class="about-body">
+        Olemme huoltaneet omia pyöriämme huolellisesti jo vuosia. Teo on myös ollut työharjoittelussa pyöriä kokoamassa, joten kokemusta on kertynyt muutakin kautta.
+      </p>
+      <p class="about-body">
+        Nyt keräämme kesälomarahoja ja olemme auki muutamana iltana viikossa omalla korjaamotilallamme Merimiehenkadulla. Pyörät ovat meillä hyvässä säilössä ja jokaiseen huoltoon käytetään aikaa — ei hoppu, hyvä loppu.
+      </p>
+    </div>
+    <div class="about-facts">
+      <div class="fact-item">
+        <div class="fact-num">2</div>
+        <div class="fact-label">Mekaanikkoa</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-num">5+</div>
+        <div class="fact-label">Vuotta kokemusta</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-num">100%</div>
+        <div class="fact-label">Huolellisuutta</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="booking" id="varaus">
   <div>
     <h2 class="booking-title">VARAA<br><em>AIKA</em><br>NETISSÄ</h2>
@@ -463,4 +555,14 @@
     </p>
   </div>
   <div style="background:rgba(0,0,0,0.15); padding: 8px;">
-   <iframe src="https://cal.com/teo-mutikainen-wdcrno/pyorahuolto" class="cal-embed" frameborder="0"></iframe>
+    <iframe src="https://cal.com/teo-mutikainen-wdcrno/pyorahuolto" class="cal-embed" frameborder="0"></iframe>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">MERIMIEHENKADUN PYÖRÄHUOLTO</div>
+  <div class="footer-note">Pyörähuolto · Ma–To illat · Merimiehenkatu 18, Punavuori</div>
+</footer>
+
+</body>
+</html>
